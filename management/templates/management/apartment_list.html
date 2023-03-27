@@ -1,0 +1,32 @@
+{% extends './base.html' %}
+{% block header_content %}
+<h2>Apartment List</h2>
+{% endblock %}
+
+{% block content %}
+<section>
+  <input type="button" onclick="window.location.href= '{% url 'management:apartment_create' %}';" value="Add Apartment" />
+
+    
+    <table style="width:100%">
+        <tr>
+          <th style="text-align:left">Apt</th>
+          <th style="text-align:left">Rent</th>
+          <th style="text-align:left">Building</th>
+        </tr>
+        {% for instance in object_list %}
+        <tr>
+          
+          <td>{{ instance.Number }}</td>
+          <td>{{ instance.Monthly_rent }}</td>
+          <td>{{ instance.Building }}</td>
+          <td><input type="button" onclick="window.location.href= '{% url 'management:apartment_update' id=instance.id %}';" value="Edit" /></td>
+          <td><input type="button" onclick="window.location.href= '{% url 'management:apartment_delete' id=instance.id %}';" value="Delete" /></td>
+          
+        </tr>
+        {% endfor %}
+    </table>
+    
+</section>
+{% endblock %}
+   

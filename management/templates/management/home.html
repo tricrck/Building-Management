@@ -1,0 +1,13 @@
+{% extends './base.html' %}
+{% block header_content %}
+<h2>Building Management</h2>
+{% endblock %}
+
+{% block content %}
+<section>
+  <p><a href="{% url 'management:building_list' %}">List of Buildings</a></p>
+  <p><a href="{% url 'management:apartment_list' %}">List of Apartments</a></p>
+  <p><a href="{% url 'management:tenant_list' %}">List of Tenants</a></p>
+</section>
+{% endblock %}
+   

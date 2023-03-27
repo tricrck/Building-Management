@@ -1,0 +1,26 @@
+{% extends './base.html' %}
+{% block header_content %}
+<h2>Building List</h2>
+{% endblock %}
+
+{% block content %}
+<section>
+    <input type="button" onclick="window.location.href= '{% url 'management:building_create' %}';" value="Add Building" />
+    <table style="width:100%">
+        <tr>
+          <th style="text-align:left">Number</th>
+          <th style="text-align:left">Street Name</th>
+        </tr>
+        {% for instance in object_list %}
+        <tr>
+          <td>{{ instance.Number }}</td>
+          <td>{{ instance.Street }}</td>
+          <td><input type="button" onclick="window.location.href= '{% url 'management:building_update' id=instance.id %}';" value="edit" /></td>
+          <td><input type="button" onclick="window.location.href= '{% url 'management:building_delete' id=instance.id %}';" value="Delete" /></td>
+        </tr>
+        {% endfor %}
+    </table>
+{{variable|unordered_list}}
+</section>
+{% endblock %}
+   
